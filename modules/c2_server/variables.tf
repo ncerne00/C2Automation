@@ -18,7 +18,12 @@ variable "c2_traffic_ingress_ports" {
     type        = list(number)
 }
 
-variable "allowed_ips" {
-  description = "List of allowed IPs for inbound C2 traffic."
-  type        = list(string)
-  }
+variable "c2_traffic_sg_id" {
+    description = "Security group handling traffic for the C2 server."
+    type        = string
+}
+
+variable "ssh_sg_id" {
+    description = "Security group handling SSH traffic."
+    type        = string
+}

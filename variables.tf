@@ -29,18 +29,6 @@ variable "c2_traffic_ingress_ports" {
   default     = [8888, 443, 53]
 }
 
-variable "c2_traffic_allowed_ips" {
-  description = "List of allowed IPs for inbound C2 traffic."
-  type        = list(string)
-  default     = ["${module.redirector.redirector_public_ip}/32"]  # Redirector IP by default
-}
-
-variable "c2_server_dns_record" {
-    description = "DNS record for the c2 server."
-    type        = string
-    default     = "${module.c2_server.c2_server_public_ip}"
-}
-
 /* Variables to manage the C2 redirectors */
 variable "enable_redirector" {
   description = "Deploy a redirector in front of the C2 server."
@@ -48,7 +36,7 @@ variable "enable_redirector" {
   default     = true
 }
 
-variable "redirector_ami" {
+variable "c2_redirector_ami" {
   description = "ID of AMI to use for the c2 redirector instances."
   type        = string
   default     = "ami-05b10e08d247fb927" // Amazon Linux 2
@@ -58,12 +46,6 @@ variable "c2_redirector_instance_type" {
     description = "Size of the c2 redirector instance."
     type        = string
     default     = "t2.micro"
-}
-
-variable "c2_redirector_dns_record" {
-    description = "DNS record for the c2 redirector"
-    type        = string
-    default     = "${module.redirector.redirector_public_ip}"
 }
 
 /* General variables to manage infrastructure */

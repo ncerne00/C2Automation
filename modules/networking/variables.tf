@@ -8,8 +8,12 @@ variable "c2_traffic_allowed_ips" {
   type        = list(string)
   }
 
-  variable "ssh_allowed_ips" {
+variable "ssh_allowed_ips" {
     description = "List of allowed IPs for SSH access."
     type        = list(string)
-    default     = null
+}
+
+variable "redirector_public_ip" {
+    description = "Public IP for the redirector server."
+    type        = string
 }

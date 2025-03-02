@@ -1,7 +1,10 @@
 resource "aws_instance" "c2_server" {
-  ami             = var.ami
-  instance_type   = var.instance_type
-  security_groups = aws_security_group.c2_sg.name
+  ami                     = var.ami
+  instance_type           = var.instance_type
+  vpc_security_group_ids  = [var.c2_traffic_sg_id, var.ssh_sg_id]
+  tags                    = {
+    Name = "c2-server"
+  }
 }
 
 /* Output the c2 server's Public IP */

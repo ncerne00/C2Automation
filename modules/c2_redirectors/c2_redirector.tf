@@ -1,6 +1,10 @@
 resource "aws_instance" "c2_redirector" {
-  ami           = var.c2_redirector_ami
-  instance_type = var.c2_redirector_instance_type
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids  = [var.c2_redirector_sg_id]
+  tags          = {
+    Name = "c2-redirector"
+  }
 }
 
 /* Output the Redirector's Public IP */

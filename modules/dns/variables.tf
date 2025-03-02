@@ -8,12 +8,12 @@ variable "c2_domain" {
     type        = string
 }
 
-variable "c2_server_dns_record" {
-    description = "DNS record for the c2 server."
+variable "redirector_public_ip" {
+    description = "Public IP for the redirector server."
     type        = string
 }
 
-variable "c2_redirector_dns_record" {
-    description = "DNS record for the c2 redirector"
+variable "c2_public_ip" {
+    description = "Public IP for the c2 server."
     type        = string
 }
