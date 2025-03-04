@@ -1,4 +1,3 @@
-# Allocate an Elastic IP
 resource "aws_eip" "c2_server_eip" {
   domain = "vpc"
   tags = {
@@ -11,6 +10,11 @@ resource "aws_instance" "c2_server" {
   instance_type           = var.instance_type
   key_name                =  var.key_pair
   vpc_security_group_ids  = [var.c2_traffic_sg_id, var.ssh_sg_id]
+
+  ebs_block_device {
+    device_name = "/dev/sda1"
+    volume_size = var.volme_size
+  }
  
   tags                    = {
     Name = "c2-server"

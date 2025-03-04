@@ -116,7 +116,7 @@ server {
 EOF
 
 # Request SSL certificate (force non-interactive)
-certbot certonly --standalone -d $REDIRECTOR_DOMAIN_NAME --non-interactive --agree-tos -m $REDIRECTOR_DOMAIN_NAME
+certbot certonly --standalone -d $REDIRECTOR_DOMAIN_NAME --non-interactive --agree-tos -m admin@$REDIRECTOR_DOMAIN_NAME
 
 # Restart Nginx
 systemctl restart nginx

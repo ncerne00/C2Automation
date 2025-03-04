@@ -32,3 +32,8 @@ variable "key_pair" {
     description = "Name of the key pair to use for the c2 instance."
     type        = string
 }
+
+variable "volme_size" {
+    description = "Size of the volume to attach to the c2 instance."
+    type        = number
+}

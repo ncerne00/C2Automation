@@ -29,6 +29,12 @@ variable "c2_traffic_ingress_ports" {
   default     = [8888, 443, 53]
 }
 
+variable "volume_size" {
+  description = "Size of the volume to attach to the c2 instance."
+  type        = number
+  default     = 20
+}
+
 /* Variables to manage the C2 redirectors */
 variable "enable_redirector" {
   description = "Deploy a redirector in front of the C2 server."

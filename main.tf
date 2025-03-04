@@ -12,6 +12,7 @@ module "c2_server" {
   c2_traffic_sg_id          = module.networking.c2_traffic_sg_id
   ssh_sg_id                 = module.networking.ssh_sg_id
   key_pair                  = var.ssh_key_pair
+  volme_size                = var.volume_size
 }
 
 module "c2_redirectors" {

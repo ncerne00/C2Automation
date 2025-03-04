@@ -17,14 +17,17 @@ Please note that C2Automation is a work in progress and currently only supports 
 
 ## Features
 
-- **C2 Redirection** - Redirecting C2 traffic to hide the true location of the C2 server. 
-- **Highly Configurable** - Manage preferences during deployment such as C2 framework, VPS instance sizes and AMIs, etc.
+- **C2 Redirection** - Redirecting C2 traffic to hide the true location of the C2 server.
 
 ## Planned
-- Domain fronting through Cloudflare
+- **Terraform Abstraction** - creating a CLI-tool to abstract terraform and ease C2 deployments.
+- **Domain Fronting** - Fronting the C2 infrastructure through a CDN like Cloudfront. 
 
 ## Usage
-WIP
+```sh
+terraform init
+terraform apply --var $variables
+```
 
 ## License
 This project is licensed under the [**MIT License**](/License)
