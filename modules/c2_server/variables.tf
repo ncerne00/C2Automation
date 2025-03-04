@@ -27,3 +27,8 @@ variable "ssh_sg_id" {
     description = "Security group handling SSH traffic."
     type        = string
 }
+
+variable "key_pair" {
+    description = "Name of the key pair to use for the c2 instance."
+    type        = string
+}

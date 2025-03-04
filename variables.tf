@@ -6,21 +6,21 @@ variable "c2_ami" {
 }
 
 variable "c2_instance_type" {
-    description = "Size of the c2 instance."
-    type        = string
-    default     = "t2.medium"
+  description = "Size of the c2 instance."
+  type        = string
+  default     = "t2.medium"
 }
 
 variable "c2_framework" {
-    description = "The framework to use for the c2 instance."
-    type        = string
-    default     = "sliver"
+  description = "The framework to use for the c2 instance."
+  type        = string
+  default     = "sliver"
 }
 
 variable "c2_domain" {
-    description = "The domain to use for the c2 instance."
-    type        = string
-    default     = "c2"
+  description = "The domain to use for the c2 instance."
+  type        = string
+  default     = "c2"
 }
 
 variable "c2_traffic_ingress_ports" {
@@ -43,26 +43,38 @@ variable "c2_redirector_ami" {
 }
 
 variable "c2_redirector_instance_type" {
-    description = "Size of the c2 redirector instance."
-    type        = string
-    default     = "t2.micro"
+  description = "Size of the c2 redirector instance."
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "approved_user_agent" {
+  description = "The User-Agent string required to forward HTTPS traffic. Incorrect value will result in a dummy page."
+  type        = string
+  default     = "Mozilla/5.0 (platform; rv:gecko-version) Gecko/gecko-trai1 Firefox/firefox-version"
 }
 
 /* General variables to manage infrastructure */
 variable "aws_region" {
-    description = "Region to use for the instances."
-    type        = string
-    default     = "us-east-1"
+  description = "Region to use for the instances."
+  type        = string
+  default     = "us-east-1"
 }
 
 variable "domain" {
-    description = "The root domain to use for your infrastructure."
-    type        = string
-    default     = null
+  description = "The root domain to use for your infrastructure."
+  type        = string
+  default     = null
 }
 
 variable "ssh_allowed_ips" {
-    description = "List of allowed IPs for SSH access."
-    type        = list(string)
-    default     = null
+  description = "List of allowed IPs for SSH access."
+  type        = list(string)
+  default     = null
+}
+
+variable "ssh_key_pair" {
+  description = "Name of the key pair to use for the instances."
+  type        = string
+  default     = null
 }

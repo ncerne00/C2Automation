@@ -11,6 +11,7 @@ module "c2_server" {
   c2_framework              = "sliver"
   c2_traffic_sg_id          = module.networking.c2_traffic_sg_id
   ssh_sg_id                 = module.networking.ssh_sg_id
+  key_pair                  = var.ssh_key_pair
 }
 
 module "c2_redirectors" {
@@ -19,6 +20,12 @@ module "c2_redirectors" {
   ami                 = var.c2_redirector_ami
   instance_type       = var.c2_redirector_instance_type
   c2_redirector_sg_id = module.networking.c2_redirector_sg_id
+  ssh_sg_id           = module.networking.ssh_sg_id
+  certbot_sg_id       = module.networking.certbot_sg_id
+  key_pair            = var.ssh_key_pair
+  c2_server_ip_address = module.c2_server.c2_server_public_ip
+  redirector_domain_name = var.domain
+  approved_user_agent = var.approved_user_agent
 }
 
 module "dns" {
