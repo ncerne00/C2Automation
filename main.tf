@@ -12,7 +12,7 @@ module "c2_server" {
   c2_traffic_sg_id          = module.networking.c2_traffic_sg_id
   ssh_sg_id                 = module.networking.ssh_sg_id
   key_pair                  = var.ssh_key_pair
-  volme_size                = var.volume_size
+  volume_size                = var.volume_size
 }
 
 module "c2_redirectors" {
@@ -25,7 +25,7 @@ module "c2_redirectors" {
   certbot_sg_id       = module.networking.certbot_sg_id
   key_pair            = var.ssh_key_pair
   c2_server_ip_address = module.c2_server.c2_server_public_ip
-  redirector_domain_name = var.domain
+  redirector_domain_name = var.redirector_domain
   approved_user_agent = var.approved_user_agent
 }
 
@@ -34,7 +34,8 @@ module "dns" {
 
   domain = var.domain
   c2_domain = var.c2_domain
-  redirector_public_ip = module.c2_redirectors.c2_redirector_public_ip
+  redirector_domain = var.redirector_domain
+  redirector_public_ip = var.enable_redirector ? module.c2_redirectors[0].c2_redirector_public_ip : null
   c2_public_ip = module.c2_server.c2_server_public_ip
 }
 
@@ -43,6 +44,6 @@ module "networking" {
 
   c2_traffic_allowed_ips = var.c2_traffic_ingress_ports
   c2_traffic_ingress_ports = var.c2_traffic_ingress_ports
-  redirector_public_ip = module.c2_redirectors.c2_redirector_public_ip
+  redirector_public_ip = var.enable_redirector ? module.c2_redirectors[0].c2_redirector_public_ip : null
   ssh_allowed_ips = var.ssh_allowed_ips
 }

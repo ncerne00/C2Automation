@@ -3,6 +3,11 @@ variable "domain" {
     type        = string
 }
 
+variable "redirector_domain" {
+    description = "The domain to use for the redirector instance."
+    type        = string
+}
+
 variable "c2_domain" {
     description = "The domain to use for the c2 instance."
     type        = string

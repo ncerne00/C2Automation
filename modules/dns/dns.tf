@@ -4,7 +4,7 @@ resource "aws_route53_zone" "primary" {
 
 resource "aws_route53_record" "redirector_server_record" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = var.domain
+  name    = var.redirector_domain
   type    = "A"
   ttl     = 300
   records = [var.redirector_public_ip]

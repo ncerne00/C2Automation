@@ -20,7 +20,7 @@ variable "c2_framework" {
 variable "c2_domain" {
   description = "The domain to use for the c2 instance."
   type        = string
-  default     = "c2"
+  default     = "marionette"
 }
 
 variable "c2_traffic_ingress_ports" {
@@ -57,7 +57,13 @@ variable "c2_redirector_instance_type" {
 variable "approved_user_agent" {
   description = "The User-Agent string required to forward HTTPS traffic. Incorrect value will result in a dummy page."
   type        = string
-  default     = "Mozilla/5.0 (platform; rv:gecko-version) Gecko/gecko-trai1 Firefox/firefox-version"
+  default     = "trai1"
+}
+
+variable "redirector_domain" {
+  description = "The domain to use for the redirector instance."
+  type        = string
+  default     = "cdn"
 }
 
 /* General variables to manage infrastructure */

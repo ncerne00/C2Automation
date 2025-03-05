@@ -12,7 +12,7 @@ resource "aws_instance" "c2_redirector" {
   vpc_security_group_ids  = [var.c2_redirector_sg_id, var.ssh_sg_id, var.certbot_sg_id]
   
   /* Adding variables to our bash script to configure nginx */ 
-  user_data = templatefile("${path.module}/files/install_nginx.sh.tpl", {
+  user_data = templatefile("${path.module}/setup/install_nginx.sh.tpl", {
     c2_server_ip = var.c2_server_ip_address
     redirector_domain_name = var.redirector_domain_name
     approved_user_agent = var.approved_user_agent

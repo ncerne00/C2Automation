@@ -12,8 +12,8 @@ resource "aws_instance" "c2_server" {
   vpc_security_group_ids  = [var.c2_traffic_sg_id, var.ssh_sg_id]
 
   ebs_block_device {
-    device_name = "/dev/sda1"
-    volume_size = var.volme_size
+    device_name = "/dev/xvda"
+    volume_size = var.volume_size
   }
  
   tags                    = {
